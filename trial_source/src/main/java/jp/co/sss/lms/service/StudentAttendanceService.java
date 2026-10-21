@@ -1,6 +1,7 @@
 package jp.co.sss.lms.service;
 
 import java.text.ParseException;
+//張雅筑 – Task.25
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -335,16 +336,18 @@ public class StudentAttendanceService {
 		return messageUtil.getMessage(Constants.PROP_KEY_ATTENDANCE_UPDATE_NOTICE);
 	}
 	
+	// 張雅筑 – Task.25
 	/**
 	 * 過去日の勤怠未入力チェック
 	 * 
+	 * @author 張雅筑 – Task.25
 	 * @return 未入力件数が0より大きい場合true、そうでない場合false
 	 * @throws ParseException
 	 */
 	public Boolean notEnterCheck() throws ParseException {
 
 		// フォーマットパターンを設定
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat(Constants.DEFAULT_DATE_FORMAT);
 		// 現在日付を取得（時刻を切り捨て）
 		Date trainingDate = sdf.parse(sdf.format(new Date()));
 

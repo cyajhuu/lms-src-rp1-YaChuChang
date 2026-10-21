@@ -86,6 +86,8 @@
 		WHERE student_attendance_id = #{studentAttendanceId}
 	</update>
 	
+	<!-- 張雅筑 – Task.25 -->
+	<!-- 過去日の勤怠未入力件数取得 -->
 	<select id="notEnterCount" resultType="Integer">
 		SELECT COUNT(*) 
 		FROM t_student_attendance
