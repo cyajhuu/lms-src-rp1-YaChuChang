@@ -336,7 +336,6 @@ public class StudentAttendanceService {
 		return messageUtil.getMessage(Constants.PROP_KEY_ATTENDANCE_UPDATE_NOTICE);
 	}
 	
-	// 張雅筑 – Task.25
 	/**
 	 * 過去日の勤怠未入力チェック
 	 * 
@@ -348,6 +347,7 @@ public class StudentAttendanceService {
 
 		// フォーマットパターンを設定
 		SimpleDateFormat sdf = new SimpleDateFormat(Constants.DEFAULT_DATE_FORMAT);
+		
 		// 現在日付を取得（時刻を切り捨て）
 		Date trainingDate = sdf.parse(sdf.format(new Date()));
 
