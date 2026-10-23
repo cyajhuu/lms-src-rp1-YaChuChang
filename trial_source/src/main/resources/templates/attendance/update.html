@@ -17,6 +17,17 @@
 			<h2><small>途中退校日：${dispLeaveDate}</small></h2>
 		</th:block>
 	</th:block>
+	
+	<!-- 張雅筑 – Task.27 入力check error -->
+	<div th:object="${attendanceForm}">
+		<th:block th:if="${#fields.hasAnyErrors()}">
+			<ul style="padding-left: 0; list-style: none;">
+				<li th:each="error : ${#fields.allErrors()}">
+					<span th:text="'*' + '&nbsp' + ${error}" class="help-inline error"></span>
+				</li>
+			</ul>
+		</th:block>
+	</div>
 
 	<div class="row">
 		<div class="bs-component col-sm-12">
@@ -98,7 +109,9 @@
 					<th:block th:if="${session.loginUserDto.role != '0001'}">
 						<input type="submit" value="戻る" name="indexCompany" class="btn btn-default" />
 					</th:block>
-					<input type="submit" value="更新" name="complete" class="btn btn-info" />
+					<!-- 張雅筑 – Task.27 更新確認Dialog -->
+					<input type="submit" value="更新" name="complete" class="btn btn-info update-button"
+						onclick="return confirm('更新します。よろしいですか？');" />
 				</div>
 
 			</form>
