@@ -481,7 +481,8 @@ public class StudentAttendanceService {
 					result.addError(new FieldError(result.getObjectName(),
 							fieldPrefix + "trainingEndTime",
 							messageUtil.getMessage(Constants.VALID_KEY_ATTENDANCE_TRAININGTIMERANGE,
-									new String[] { String.valueOf(i) })));
+									new String[] { dailyAttendanceForm.getTrainingEndTime(),
+											dailyAttendanceForm.getTrainingStartTime() })));
 
 				// f．中抜け時間が勤務時間を超えていないかのチェック
 				} else if (dailyAttendanceForm.getBlankTime() != null
