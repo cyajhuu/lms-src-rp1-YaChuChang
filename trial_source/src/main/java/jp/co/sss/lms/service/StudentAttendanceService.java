@@ -1,7 +1,7 @@
 package jp.co.sss.lms.service;
 
 import java.text.ParseException;
-//張雅筑 – Task.25
+// 張雅筑 – Task.25
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,7 +10,7 @@ import java.util.List;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-//張雅筑 – Task.27
+// 張雅筑 – Task.27
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 
@@ -36,7 +36,7 @@ import jp.co.sss.lms.util.TrainingTime;
 @Service
 public class StudentAttendanceService {
 	
-	//張雅筑 – Task.27
+	// 張雅筑 – Task.27
 	/** 備考の最大文字数 */
 	private static final int NOTE_MAX_LENGTH = 100;
 	@Autowired
