@@ -7,6 +7,14 @@
 </head>
 <body>
 
+	<!-- 張雅筑 – Task.28 時・分select boxの表示幅 -->
+	<style>
+		.time-select {
+			min-width: 70px;
+			padding-left: 6px;
+			padding-right: 6px;
+		}
+	</style>
 	<th:block th:if="${session.loginUserDto.role == '0001'}">
 		<h2>勤怠管理</h2>
 	</th:block>
@@ -67,28 +75,28 @@
 								</td>
 								<!-- 張雅筑 – Task.26 出勤時間（時：分） -->
 								<td class="w70">
-									<select th:name="|attendanceList[${stat.index}].trainingStartTimeHour|" class="form-control">
+									<select th:name="|attendanceList[${stat.index}].trainingStartTimeHour|" class="form-control time-select">
 										<option th:each="hour : ${attendanceForm.hourMap}" th:value="${hour.key}"
 											th:selected="${hour.key == dailyAttendanceForm.trainingStartTimeHour}">[[${hour.value}]]</option>
 									</select>
 								</td>
 								<td>:</td>
 								<td class="w70">
-									<select th:name="|attendanceList[${stat.index}].trainingStartTimeMinute|" class="form-control">
+									<select th:name="|attendanceList[${stat.index}].trainingStartTimeMinute|" class="form-control time-select">
 										<option th:each="minute : ${attendanceForm.minuteMap}" th:value="${minute.key}"
 											th:selected="${minute.key == dailyAttendanceForm.trainingStartTimeMinute}">[[${minute.value}]]</option>
 									</select>
 								</td>
 								<!-- 張雅筑 – Task.26 退勤時間（時：分） -->
 								<td class="w70">
-									<select th:name="|attendanceList[${stat.index}].trainingEndTimeHour|" class="form-control">
+									<select th:name="|attendanceList[${stat.index}].trainingEndTimeHour|" class="form-control time-select">
 										<option th:each="hour : ${attendanceForm.hourMap}" th:value="${hour.key}"
 											th:selected="${hour.key == dailyAttendanceForm.trainingEndTimeHour}">[[${hour.value}]]</option>
 									</select>
 								</td>
 								<td>:</td>
 								<td class="w70">
-									<select th:name="|attendanceList[${stat.index}].trainingEndTimeMinute|" class="form-control">
+									<select th:name="|attendanceList[${stat.index}].trainingEndTimeMinute|" class="form-control time-select">
 										<option th:each="minute : ${attendanceForm.minuteMap}" th:value="${minute.key}"
 											th:selected="${minute.key == dailyAttendanceForm.trainingEndTimeMinute}">[[${minute.value}]]</option>
 									</select>
