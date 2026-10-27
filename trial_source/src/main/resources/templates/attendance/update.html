@@ -38,6 +38,8 @@
 						<tr>
 							<th class="w140">日付</th>
 							<th class="w300">コース内容</th>
+							<!-- 張雅筑 – Task.28 -->
+							<th class="w60"></th>
 							<!-- 張雅筑 – Task.26 -->
 							<th class="w180" colspan="3">出勤</th>
 							<th class="w180" colspan="3">退勤</th>
@@ -59,6 +61,10 @@
 								</th:block>
 								<td class="w140">[[${dailyAttendanceForm.dispTrainingDate}]]</td>
 								<td class="w300">[[${dailyAttendanceForm.sectionName}]]</td>
+								<!-- 張雅筑 – Task.28 定時button -->
+								<td class="w60">
+									<input type="button" value="定時" class="btn btn-success default-button" />
+								</td>
 								<!-- 張雅筑 – Task.26 出勤時間（時：分） -->
 								<td class="w70">
 									<select th:name="|attendanceList[${stat.index}].trainingStartTimeHour|" class="form-control">
@@ -117,6 +123,20 @@
 			</form>
 		</div>
 	</div>
-
+	<!-- 張雅筑 – Task.28 定時button押下時の出退勤時間の自動設定 -->
+	<script type="text/javascript">
+		$(function() {
+			$(".default-button").on("click", function() {
+				// 押下されたbuttonと同じ行のselect boxに定時を設定
+				const row = $(this).closest("tr");
+				// 出勤時間：09:00
+				row.find("select[name$='.trainingStartTimeHour']").val("9");
+				row.find("select[name$='.trainingStartTimeMinute']").val("0");
+				// 退勤時間：18:00
+				row.find("select[name$='.trainingEndTimeHour']").val("18");
+				row.find("select[name$='.trainingEndTimeMinute']").val("0");
+			});
+		});
+	</script>
 </body>
 </html>
