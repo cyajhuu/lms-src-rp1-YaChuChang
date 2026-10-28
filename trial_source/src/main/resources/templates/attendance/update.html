@@ -14,7 +14,19 @@
 			padding-left: 6px;
 			padding-right: 6px;
 		}
+		/* 張雅筑 – Task.29 勤怠一覧のscroll表示 */
+		.attendance-scroll {
+			max-height: 620px;
+			overflow-y: auto;
+		}
+		.attendance-scroll thead th {
+			position: sticky;
+			top: 0;
+			background-color: #fff;
+			z-index: 1;
+		}
 	</style>
+	
 	<th:block th:if="${session.loginUserDto.role == '0001'}">
 		<h2>勤怠管理</h2>
 	</th:block>
@@ -41,6 +53,8 @@
 		<div class="bs-component col-sm-12">
 
 			<form th:action="@{/attendance/update}" method="post">
+				<!-- 張雅筑 – Task.29 勤怠一覧のscroll表示 -->
+				<div class="attendance-scroll">
 				<table class="table table-hover dataTable no-footer">
 					<thead>
 						<tr>
@@ -115,6 +129,7 @@
 						</th:block>
 					</tbody>
 				</table>
+				</div>
 
 				<div class="form-group">
 					<th:block th:if="${session.loginUserDto.role == '0001'}">
